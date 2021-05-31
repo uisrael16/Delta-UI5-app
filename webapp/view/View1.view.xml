@@ -1,0 +1,62 @@
+<mvc:View xmlns:layout="sap.ui.layout"
+    controllerName="project1.controller.View1"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+	<Shell id="shell">
+		<App id="app">
+			<pages>
+				<Page id="page" title="{i18n>title}"> 
+                <Panel width="auto" class="sapUiResponsiveMargin" accessibleRole="Region">
+                    <f:SimpleForm 
+                        id="SF1"
+                        layout="ResponsiveGridLayout"
+                        title="{i18n>appTitle}">
+                        
+                        <f:content>
+                       
+                        <Label text="{i18n>fname}" />
+                        <Input value="{}" width="50%" placeholder="Enter your First Name" id="FirstName"></Input>
+                        <Label text="{i18n>mname}" />
+                        <Input value="{}" width="50%" placeholder="Enter your Middle Name" id="MiddleName"></Input>
+                        <Label text="{i18n>lname}" />
+                        <Input value="{}" width="50%" placeholder="Enter your Last Name" id="LastName"></Input>
+                        <Label text="{i18n>email}" />
+                        <Input value="{}" width="50%" placeholder="Enter your Email" id="Email"></Input>
+                        <Label text="{i18n>pword1}" />
+                        <Input value="{}" width="50%" placeholder="Enter your Password" type="Password" id="Password"></Input>
+                        <Label text="{i18n>pword2}" />
+                        <Input value="{}" width="50%" placeholder="confirm your Password" type="Password" id="Confirm" ></Input>
+                        
+                        
+                        <!-- <RadioButtonGroup >
+                            <buttons>
+                                <RadioButton id="Male" text="Male"></RadioButton>
+                                <RadioButton id="rbFemaleId" text="Female"></RadioButton>
+                            </buttons>
+                        </RadioButtonGroup> -->
+                        <Label text="Date of Birth"/>
+                            <DatePicker>
+                                <layoutData  >
+                                    <layout:GridData  span="L4 M3 S4"/>
+                                </layoutData>
+                            </DatePicker>
+                     
+                        </f:content> 
+                    </f:SimpleForm>
+                    </Panel>   
+                    	<Button type="Accept" width="30%" text="Register" press=".onRegister" >
+					<layoutData><OverflowToolbarLayoutData priority="NeverOverflow" /></layoutData>
+				</Button>
+                <Button type="Accept"  width="30%" text="Login"  press="GoToTarget_1">
+					<layoutData><OverflowToolbarLayoutData  priority="NeverOverflow" /></layoutData>
+				</Button>
+					<content />
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>

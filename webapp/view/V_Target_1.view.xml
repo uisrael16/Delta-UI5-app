@@ -1,0 +1,43 @@
+<mvc:View
+    controllerName="project1.controller.V_Target_1"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+	<Shell id="shel">
+		<App id="pp">
+			<pages>
+				<Page id="page" title="Target One"> 
+                <Panel width="auto" class="sapUiResponsiveMargin" accessibleRole="Region">
+                    <f:SimpleForm 
+                        id="SF1"
+                        layout="ResponsiveGridLayout"
+                        title="{i18n>title}">
+                        
+                        <f:content>
+                       <core:Icon src="sap-icon://SAP-icons-TNT/user" size="3em"></core:Icon>
+                        <Label text="{i18n>fname}" />
+                        <Input value="{}" width="50%" placeholder="Enter your First Name"></Input>
+                       
+                        <Label text="{i18n>pword1}" />
+                        <Input value="{}" width="50%" placeholder="Enter your Password" type="Password"></Input>
+                        
+                       
+                     
+                        </f:content> 
+                    </f:SimpleForm>
+                    </Panel>   
+                    	<Button type="Accept" press="GoToLogin_1" width="30%" text="Login" >
+					<layoutData><OverflowToolbarLayoutData priority="NeverOverflow" /></layoutData>
+				</Button>
+                <Button type="Accept" width="30%" text="Register" >
+					<layoutData><OverflowToolbarLayoutData priority="NeverOverflow" /></layoutData>
+				</Button>
+					<content />
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
