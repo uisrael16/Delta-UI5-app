@@ -1,0 +1,130 @@
+{
+    "Users": [
+        {
+            "ProductId": "1",
+            "FirstName": "Unathi",
+            "LastName": "Nkomo",
+            "MiddleName": "Israel",
+            "Supplier": "BCX",
+            "Item": "CPU",
+            "Email": "unathinkomo16@gmail.com",
+            "Date": "16-10-2019"
+        },
+        {
+            "ProductId": "1",
+            "FirstName": "Bella",
+            "LastName": "Caroline",
+            "MiddleName": "Fiona",
+            "Supplier": "bbd",
+            "Item": "CPU",
+            "Email": "unathinkomo16@gmail.com",
+            "Date": "16-10-2019"
+        },
+        {
+            "ProductId": "1",
+            "FirstName": "Diana",
+            "LastName": "Irene",
+            "MiddleName": "Grace",
+            "Supplier": "YOCO",
+            "Item": "CPU",
+            "Email": "unathinkomo16@gmail.com",
+            "Date": "16-10-2019"
+        },
+        {
+            "ProductId": "1",
+            "FirstName": "Jennifer",
+            "LastName": "Nkomo",
+            "MiddleName": "Israel",
+            "Supplier": "IQBusisess",
+            "Item": "CPU",
+            "Email": "unathinkomo16@gmail.com",
+            "Date": "16-10-2019"
+        },
+        {
+            "ProductId": "1",
+            "FirstName": "Kylie",
+            "LastName": "Nkomo",
+            "MiddleName": "Israel",
+            "Supplier": "Spark Schools",
+            "Item": "CPU",
+            "Email": "unathinkomo16@gmail.com",
+            "Date": "16-10-2019"
+        },
+        {
+            "ProductId": "1",
+            "FirstName": "Lillian",
+            "LastName": "Nkomo",
+            "MiddleName": "Israel",
+            "Supplier": "FNB",
+            "Item": "CPU",
+            "Email": "unathinkomo16@gmail.com",
+            "Date": "16-10-2019"
+        },
+        {
+            "ProductId": "1",
+            "FirstName": "Hannah",
+            "LastName": "Nkomo",
+            "MiddleName": "Israel",
+            "Supplier": "Standard Bank",
+            "Item": "CPU",
+            "Email": "unathinkomo16@gmail.com",
+            "Date": "16-10-2019"
+        },
+        {
+            "ProductId": "1",
+            "FirstName": "Rachel",
+            "LastName": "Nkomo",
+            "MiddleName": "Israel",
+            "Supplier": "BCX",
+            "Item": "CPU",
+            "Email": "unathinkomo16@gmail.com",
+            "Date": "16-10-2019"
+        },
+            {
+            "ProductId": "1",
+            "FirstName": "Mary",
+            "LastName": "Nkomo",
+            "MiddleName": "Israel",
+            "Supplier": "Snode",
+            "Item": "CPU",
+            "Email": "unathinkomo16@gmail.com",
+            "Date": "16-10-2019"
+        },    {
+            "ProductId": "1",
+            "FirstName": "Rebecca",
+            "LastName": "Nkomo",
+            "MiddleName": "Israel",
+            "Supplier": "Qlink",
+            "Item": "CPU",
+            "Email": "unathinkomo16@gmail.com",
+            "Date": "16-10-2019"
+        },    {
+            "ProductId": "1",
+            "FirstName": "Samantha",
+            "LastName": "Nkomo",
+            "MiddleName": "Israel",
+            "Supplier": "Open serve",
+            "Item": "CPU",
+            "Email": "unathinkomo16@gmail.com",
+            "Date": "16-10-2019"
+        },    {
+            "ProductId": "1",
+            "FirstName": "Theresa",
+            "LastName": "Nkomo",
+            "MiddleName": "Israel",
+            "Supplier": "BCX",
+            "Item": "CPU",
+            "Email": "unathinkomo16@gmail.com",
+            "Date": "16-10-2019"
+        },    {
+            "ProductId": "1",
+            "FirstName": "Olivia",
+            "LastName": "Nkomo",
+            "MiddleName": "Israel",
+            "Supplier": "BCX",
+            "Item": "CPU",
+            "Email": "unathinkomo16@gmail.com",
+            "Date": "16-10-2019"
+        }
+    ]
+}

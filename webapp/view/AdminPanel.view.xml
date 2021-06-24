@@ -1,0 +1,123 @@
+<mvc:View
+    controllerName="project1.controller.AdminPanel"
+    
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+	<Shell id="shel">
+		<App>
+		<pages>
+			<Page>
+				<customHeader>
+					<Bar>
+						<contentLeft>
+							<Button tooltip="Back" icon="sap-icon://nav-back" press="goToMainPage"/>
+						</contentLeft>
+						<contentMiddle>
+							<Title text="Vendor Approval"/>
+						</contentMiddle>
+						<contentRight>
+							<Button tooltip="Logout" icon="sap-icon://log" press=".GoToTarget_1"/>
+						</contentRight>
+					</Bar>
+				</customHeader>
+				<content>
+                 <SplitApp id="splitappid" masterButtonText="Master" masterNavigate="" afterMasterNavigate="" masterButton="" detailNavigate="">
+                            <masterPages>
+                                <Page id="masterpageid" title="Vendor's Basic Info" titleLevel="Auto" showNavButton="true" showHeader="true" showSubHeader="true"
+                                    navButtonText="" navButtonTooltip="" enableScrolling="true" icon="" navButtonTap="" navButtonPress="">
+                                    <content>
+                                        <List id="emplist" items="{/emp}"   headerText="Employee Data" headerDesign="Standard" footerText="End of the List" noDataText="No Employees"
+                                            showNoData="true">
+                                            <items> 
+                                                <ObjectListItem type="Active" title="{FirstName}" number="{order date}" numberUnit="ago" intro="VendorID: {VendorID}" press="onObjectItemPress">
+                                                    <attributes>
+                                                        <ObjectAttribute title="" text="{telephone}"></ObjectAttribute>
+                                                    </attributes>
+                                                    <firstStatus>
+                                                        <ObjectStatus title="{exp}" text="{address}"></ObjectStatus>
+                                                    </firstStatus>
+                                                    <secondStatus>
+                                                        <ObjectStatus title="{province}" text="{town}"></ObjectStatus>
+                                                    </secondStatus>
+                                                </ObjectListItem>
+                                            </items>
+                                            <headerToolbar>
+                                                <Toolbar>
+                                                    <content>
+                                                        <Title text="Companies" title="Search"></Title>
+                                                        <ToolbarSpacer/>
+                                                        <SearchField search="onSearch" width="50%"></SearchField>
+                                                    </content>
+                                                </Toolbar>
+                                            </headerToolbar>
+                                        </List>
+                                    </content>
+                                </Page>
+                            </masterPages>
+                            <detailPages>
+                                <Page id="detailpageid" title="Product Information" titleLevel="Auto" showNavButton="true" showHeader="true" showSubHeader="true"
+                                    navButtonText="" navButtonTooltip="" enableScrolling="true" icon="" navButtonTap="" navButtonPress="">
+                                    <content>
+                                        <List id="projectlistid" items="{products}">
+                                            <items>
+                                                <StandardListItem title="ProductID : {productID}"  info="Quantity: {quantity}" description="ProductName: {productName}"></StandardListItem>
+                                            </items>
+                                        </List>
+                                         <Panel width="auto" class="sapUiResponsiveMargin" accessibleRole="Region">
+                    <f:SimpleForm 
+                        id="Form"
+                        layout="ResponsiveGridLayout"
+                        title="{i18n>appTitle}">
+                        
+                        <f:content>
+                        <Label text="VendorID" required="true" />
+                        <Input value=" " width="50%" liveChange="handleUserInput"  placeholder="Enter your First Name" id="VendorID"></Input>
+                        <Label text="order date" required="true"/>
+                        <Input value=" " width="50%" liveChange="handleUserInput"   placeholder="Enter your Middle Name" id="order_date"></Input>
+                        <Label text="FirstName" required="true" />
+                        <Input value=" " width="50%" liveChange="handleUserInput"  placeholder="Enter your Last Name" id="FirstName"></Input>
+                        <Label text="province" required="true" />
+                        <Input value=" " width="50%" liveChange="handleUserInput"  placeholder="Enter your First Name" id="province"></Input>
+                        <Label text="town" required="true" />
+                        <Input value=" " width="50%" liveChange="handleUserInput"  placeholder="Enter your First Name" id="town"></Input>
+                        <Label text="telephone" required="true" />
+                        <Input value=" " width="50%" liveChange="handleUserInput"  placeholder="Enter your First Name" id="telephone"></Input>
+                        <Label text="address" required="true" />
+                        <Input value=" " width="50%" liveChange="handleUserInput"  placeholder="Enter your First Name" id="address"></Input>
+                        <Label text="productID" required="true" />
+                        <Input value=" " width="50%" liveChange="handleUserInput"  placeholder="Enter your First Name" id="productID"></Input>
+                        <Label text="productName" required="true" />
+                        <Input value=" " width="50%" liveChange="handleUserInput"  placeholder="Enter your First Name" id="productName"></Input>
+                        <Label text="quantity" required="true" />
+                        <Input value=" " width="50%" liveChange="handleUserInput"  placeholder="Enter your First Name" id="quantity"></Input>
+
+                        
+         
+      
+					<Bar>
+						<contentMiddle>
+							<Button type="Accept" text="Accept" press=" onSave" tooltip="{i18n>approveButtonText}"></Button>
+							<Button type="Reject" text="Reject" press="onClick" tooltip="{i18n>rejectButtonText}"></Button>
+						</contentMiddle>
+					</Bar>
+				
+                        </f:content> 
+                    </f:SimpleForm>
+                    </Panel>   
+                                    </content>
+                                </Page>
+                            </detailPages>
+                        </SplitApp>
+				</content>
+
+
+				
+			</Page>
+		</pages>
+	</App>
+	</Shell>
+</mvc:View>

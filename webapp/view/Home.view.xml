@@ -1,0 +1,24 @@
+<mvc:View
+    controllerName="project1.controller.V_Target_1"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
+    xmlns:mvc="sap.ui.core.mvc"
+    displayBlock="true"
+    xmlns="sap.m"
+>
+	<Shell id="shel">
+		<App id="pp">
+			<pages>
+				<Page id="page" title="Home"> 
+                <Panel width="auto" class="sapUiResponsiveMargin" accessibleRole="Region" >
+                <Text  textAlign="Center"  text="Congratulations, your account has been successfully created. You have been Registerd as a new Vendor on our System, please check your Emails to verify this account"/>
+              </Panel>
+               <Button type="Accept" press="GoToLogin_1" width="30%" text="Login" >
+					<layoutData><OverflowToolbarLayoutData priority="NeverOverflow" /></layoutData>
+				</Button>
+					
+				</Page>
+			</pages>
+		</App>
+	</Shell>
+</mvc:View>
