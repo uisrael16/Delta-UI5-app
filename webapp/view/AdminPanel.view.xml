@@ -30,15 +30,15 @@
                                 <Page id="masterpageid" title="Vendor's Basic Info" titleLevel="Auto" showNavButton="true" showHeader="true" showSubHeader="true"
                                     navButtonText="" navButtonTooltip="" enableScrolling="true" icon="" navButtonTap="" navButtonPress="">
                                     <content>
-                                        <List id="emplist" items="{/emp}"   headerText="Employee Data" headerDesign="Standard" footerText="End of the List" noDataText="No Employees"
+                                        <List id="emplist" items="{/emp}"   headerText="Employee Data" headerDesign="Standard" footerText="End of the List" noDataText="No Vendors on board!"
                                             showNoData="true">
                                             <items> 
-                                                <ObjectListItem type="Active" title="{FirstName}" number="{order date}" numberUnit="ago" intro="VendorID: {VendorID}" press="onObjectItemPress">
+                                                <ObjectListItem type="Active" title="{FirstName}" number="order date: {order date}" numberUnit="ago" intro="VendorID: {VendorID}" press="onObjectItemPress">
                                                     <attributes>
                                                         <ObjectAttribute title="" text="{telephone}"></ObjectAttribute>
                                                     </attributes>
                                                     <firstStatus>
-                                                        <ObjectStatus title="{exp}" text="{address}"></ObjectStatus>
+                                                        <ObjectStatus title="{address}" text="{address}"></ObjectStatus>
                                                     </firstStatus>
                                                     <secondStatus>
                                                         <ObjectStatus title="{province}" text="{town}"></ObjectStatus>
@@ -62,7 +62,7 @@
                                 <Page id="detailpageid" title="Product Information" titleLevel="Auto" showNavButton="true" showHeader="true" showSubHeader="true"
                                     navButtonText="" navButtonTooltip="" enableScrolling="true" icon="" navButtonTap="" navButtonPress="">
                                     <content>
-                                        <List id="projectlistid" items="{products}">
+                                        <List id="projectlistid" items="{/emp}">
                                             <items>
                                                 <StandardListItem title="ProductID : {productID}"  info="Quantity: {quantity}" description="ProductName: {productName}"></StandardListItem>
                                             </items>
@@ -75,10 +75,10 @@
                         
                         <f:content>
                         <Label text="VendorID" required="true" />
-                        <Input value=" " width="50%" liveChange="handleUserInput"  placeholder="Enter your First Name" id="VendorID"></Input>
+                        <Input value=" " width="50%" liveChange="handleUserInput"  placeholder="Enter  VendorID" id="VendorID"></Input>
                         <Label text="order date" required="true"/>
-                        <Input value=" " width="50%" liveChange="handleUserInput"   placeholder="Enter your Middle Name" id="order_date"></Input>
-                        <Label text="FirstName" required="true" />
+                        <Input value=" " width="50%" liveChange="handleUserInput"   placeholder="order date" id="order_date"></Input>
+                        <Label text="Company Name" required="true" />
                         <Input value=" " width="50%" liveChange="handleUserInput"  placeholder="Enter your Last Name" id="FirstName"></Input>
                         <Label text="province" required="true" />
                         <Input value=" " width="50%" liveChange="handleUserInput"  placeholder="Enter your First Name" id="province"></Input>
