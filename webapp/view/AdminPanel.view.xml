@@ -20,7 +20,7 @@
 							<Title text="Vendor Approval"/>
 						</contentMiddle>
 						<contentRight>
-							<Button tooltip="Logout" icon="sap-icon://log" press=".GoToTarget_1"/>
+							<Button tooltip="Logout" icon="sap-icon://log" press=".onLogout"/>
 						</contentRight>
 					</Bar>
 				</customHeader>
@@ -33,7 +33,7 @@
                                         <List id="emplist" items="{/emp}"   headerText="Employee Data" headerDesign="Standard" footerText="End of the List" noDataText="No Vendors on board!"
                                             showNoData="true">
                                             <items> 
-                                                <ObjectListItem type="Active" title="{FirstName}" number="order date: {order date}" numberUnit="ago" intro="VendorID: {VendorID}" press="onObjectItemPress">
+                                                <ObjectListItem type="Active" title="From: {FirstName}" number="Date: {order_date}" numberUnit="ago" intro="VendorID: {VendorID}" press="onObjectItemPress">
                                                     <attributes>
                                                         <ObjectAttribute title="" text="{telephone}"></ObjectAttribute>
                                                     </attributes>
@@ -50,7 +50,7 @@
                                                     <content>
                                                         <Title text="Companies" title="Search"></Title>
                                                         <ToolbarSpacer/>
-                                                        <SearchField search="onSearch" width="50%"></SearchField>
+                                                        <SearchField search=".onFilterInvoices" width="50%"></SearchField>
                                                     </content>
                                                 </Toolbar>
                                             </headerToolbar>
@@ -64,7 +64,7 @@
                                     <content>
                                         <List id="projectlistid" items="{/emp}">
                                             <items>
-                                                <StandardListItem title="ProductID : {productID}"  info="Quantity: {quantity}" description="ProductName: {productName}"></StandardListItem>
+                                                <StandardListItem title="Product ID : {productID}"  info="Quantity: {quantity}" description="Product Name: {productName}"></StandardListItem>
                                             </items>
                                         </List>
                                          <Panel width="auto" class="sapUiResponsiveMargin" accessibleRole="Region">
@@ -75,39 +75,192 @@
                         
                         <f:content>
                         <Label text="VendorID" required="true" />
-                        <Input value=" " width="50%" liveChange="handleUserInput"  placeholder="Enter  VendorID" id="VendorID"></Input>
-                        <Label text="order date" required="true"/>
-                        <Input value=" " width="50%" liveChange="handleUserInput"   placeholder="order date" id="order_date"></Input>
-                        <Label text="Company Name" required="true" />
-                        <Input value=" " width="50%" liveChange="handleUserInput"  placeholder="Enter your Last Name" id="FirstName"></Input>
-                        <Label text="province" required="true" />
-                        <Input value=" " width="50%" liveChange="handleUserInput"  placeholder="Enter your First Name" id="province"></Input>
-                        <Label text="town" required="true" />
-                        <Input value=" " width="50%" liveChange="handleUserInput"  placeholder="Enter your First Name" id="town"></Input>
-                        <Label text="telephone" required="true" />
-                        <Input value=" " width="50%" liveChange="handleUserInput"  placeholder="Enter your First Name" id="telephone"></Input>
-                        <Label text="address" required="true" />
-                        <Input value=" " width="50%" liveChange="handleUserInput"  placeholder="Enter your First Name" id="address"></Input>
-                        <Label text="productID" required="true" />
-                        <Input value=" " width="50%" liveChange="handleUserInput"  placeholder="Enter your First Name" id="productID"></Input>
-                        <Label text="productName" required="true" />
-                        <Input value=" " width="50%" liveChange="handleUserInput"  placeholder="Enter your First Name" id="productName"></Input>
-                        <Label text="quantity" required="true" />
-                        <Input value=" " width="50%" liveChange="handleUserInput"  placeholder="Enter your First Name" id="quantity"></Input>
-
+                        <Input  
+                        width="50%" 
+                        valueHelpOnly="false" 
+                        liveChange="handleUserInput"  
+                        placeholder="Enter  VendorID" 
+                        id="VendorID" 
+                        class="sapUiSmallMarginBottom"
+			            valueStateText="VendorID must not be empty. Maximum 5 characters."
+			            value="{
+				            path : '/VendorID',
+				            type : 'sap.ui.model.type.String',
+				            constraints : {
+					        minLength: 1,
+					        maxLength: 5
+				                }
+			                }"
+			            change= ".onNameChange">
+                        </Input>
+                        <Label text="Date" required="true"/>
+                        <DatePicker
+			id="order_date"
+			placeholder="Enter Date"
+             width="50%" 
+			change="handleChange"
+			class="sapUiSmallMarginBottom"
+             valueStateText="Date must not be empty."
+			             value="{
+				            path : '/Date',
+				            type : 'sap.ui.model.type.String',
+				            constraints : {
+					        minLength: 1,
+					        maxLength: 10
+				                }
+			                }"/>
                         
-         
-      
-					<Bar>
+                        <Label text="Company" required="true" />
+                        <Input
+                         width="50%" 
+                         liveChange="handleUserInput"  
+                         placeholder="Enter Company" 
+                         id="FirstName"
+                         class="sapUiSmallMarginBottom"
+			             valueStateText="Company name must not be empty. Maximum 16 characters"
+			             value="{
+				            path : '/Company',
+				            type : 'sap.ui.model.type.String',
+				            constraints : {
+					        minLength: 1,
+					        maxLength: 16
+				                }
+			                }">
+                         </Input>
+                        <Label text="Province" required="true" />
+                        <Input 
+                        width="50%" 
+                        liveChange="handleUserInput"  
+                        placeholder="Enter Vendor Province" 
+                        id="province"
+                        valueStateText="Province name must not be empty. Maximum 16 characters"
+			            value="{
+				            path : '/Province',
+				            type : 'sap.ui.model.type.String',
+				            constraints : {
+					        minLength: 1,
+					        maxLength: 16
+				                }
+			                }"
+                        ></Input>
+                        <Label text="Town" required="true" />
+                        <Input 
+                        width="50%" 
+                        liveChange="handleUserInput"  
+                        placeholder="Enter Vendors Town" 
+                        id="town"
+                        valueStateText="Town name must not be empty. Maximum 16 "
+			            value="{
+				            path : '/Town',
+				            type : 'sap.ui.model.type.String',
+				            constraints : {
+					        minLength: 1,
+					        maxLength: 16
+				                }
+			                }"
+                        ></Input>
+                        <Label text="Telephone" required="true" />
+                        <Input
+                         width="50%" 
+                         liveChange="handleUserInput"  
+                         placeholder="Enter Vendor Telephone " 
+                         id="telephone"
+                         valueStateText="Telephone name must not be empty. Maximum 16 Numbers"
+			             value="{
+				            path : '/telephone',
+				            type : 'sap.ui.model.type.String',
+				            constraints : {
+					        minLength: 1,
+					        maxLength: 16
+				                }
+			                }"
+                         
+                         ></Input>
+                        <Label text="Email" required="true" />
+                        <Input 
+                        type="Email"
+			            valueStateText="E-mail must be a valid email address."
+			            value="{
+				                path: '/email',
+				                type: '.customEMailType'
+			                    }" 
+                        width="50%" 
+                        liveChange="handleUserInput"  
+                        placeholder="Enter Vendor's Email" 
+                        id="Email"></Input>
+                        <Label text="Address" required="true" />
+                        <Input
+                         width="50%" 
+                         liveChange="handleUserInput"  
+                         placeholder="Enter Vendor Address" 
+                         id="address"
+                         valueStateText="Province name must not be empty. Maximum 16 characters"
+			             value="{
+				            path : '/Address',
+				            type : 'sap.ui.model.type.String',
+				            constraints : {
+					        minLength: 1,
+					        maxLength: 16
+				                }
+			                }"></Input>
+                        <Label text="Product ID" required="true" />
+                        <Input 
+                         width="50%" 
+                         liveChange="handleUserInput"  
+                         placeholder="Enter Vendor productID"
+                         id="productID" 
+                         valueStateText="productID name must not be empty. Maximum 5 characters"
+                         value="{
+                                path : '/productID',
+                                type : 'sap.ui.model.type.String',
+                                constraints : {
+                                minLength: 1,
+                                maxLength: 5
+                                    }
+                                }"></Input>
+                        <Label text="Product Name" required="true" />
+                        <Input 
+                         width="50%" 
+                         liveChange="handleUserInput" 
+                         placeholder="Enter Vendor productName" 
+                         id="productName"
+                         valueStateText="productName name must not be empty. Maximum 10 characters"
+                         value="{
+                                path : '/productName',
+                                type : 'sap.ui.model.type.String',
+                                constraints : {
+                                minLength: 1,
+                                maxLength: 10
+                                    }
+                                }"
+                         ></Input>
+                        <Label text="Quantity" required="true" />
+                        <Input
+                         width="60%" 
+                         liveChange="handleUserInput"  
+                         placeholder="Enter Quantity" 
+                         id="quantity"
+                         valueStateText="quantity must be in numbers"
+                         value="{
+                                path : '/quantity',
+                                type : 'sap.ui.model.type.String',
+                                constraints : {
+                                minLength: 1,
+                                maxLength: 10
+                                    }
+                                }"
+                         ></Input>
+                        </f:content> 
+                         <Bar>
 						<contentMiddle>
-							<Button type="Accept" text="Accept" press=" onSave" tooltip="{i18n>approveButtonText}"></Button>
-							<Button type="Reject" text="Reject" press="onClick" tooltip="{i18n>rejectButtonText}"></Button>
+							<Button type="Accept" id="btn" text="Accept" press=".onSave" tooltip="{approveButtonText}"></Button>
+                            <Button  text="Drop All" press=".onInit" tooltip="{approveButtonText}"></Button>
+							<Button type="Reject" text="Reject" press=".onReject" tooltip="{rejectButtonText}"></Button>
 						</contentMiddle>
 					</Bar>
-				
-                        </f:content> 
                     </f:SimpleForm>
                     </Panel>   
+                    
                                     </content>
                                 </Page>
                             </detailPages>

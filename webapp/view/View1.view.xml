@@ -1,79 +1,62 @@
 <mvc:View xmlns:layout="sap.ui.layout"
-    controllerName="project1.controller.View1"
-    xmlns:f="sap.ui.layout.form"
-    xmlns:core="sap.ui.core"
-    xmlns:mvc="sap.ui.core.mvc"
-    displayBlock="false"
-    xmlns="sap.m"
->
-	<Shell id="shell">
+ xmlns:f="sap.ui.layout.form"
+	controllerName="project1.controller.View1"
+	xmlns="sap.m"
+	xmlns:l="sap.ui.layout"
+     xmlns:core="sap.ui.core"
+    displayBlock="true"
+	xmlns:mvc="sap.ui.core.mvc">
+
+    <Shell id="shell">
 		<App id="app">
 			<pages>
-				<Page id="page" title="{i18n>title}"> 
+				<Page id="page" title="{Vendor on boarding system}"> 
                 <Panel width="auto" class="sapUiResponsiveMargin" accessibleRole="Region">
-                    <f:SimpleForm 
-                        id="Form"
+                 <f:SimpleForm 
+                        id="SF1"
                         layout="ResponsiveGridLayout"
-                        title="{i18n>appTitle}">
+                        title="{i18n>title}">
                         
                         <f:content>
-                        <Label text="{i18n>fname}" required="true" />
-                        <Input value="{
+                         <core:Icon src="sap-icon://employee-pane" size="263em"></core:Icon>
+	<l:VerticalLayout class="sapUiContentPadding" width="100%">
+		<Label text="Name" labelFor="nameInput" />
+         <core:Icon src="sap-icon://SAP-icons-TNT/user" size="300em"></core:Icon>
+		<Input
+			id="nameInput"
+            width="50%"
+			class="sapUiSmallMarginBottom"
+			placeholder="Enter name"
+			valueStateText="Name must not be empty. Maximum 15 characters."
+			value="{
+				path : '/name',
+				type : 'sap.ui.model.type.String',
+				constraints : {
+					minLength: 1,
+					maxLength: 15
+				}
+			}"
+			change= ".onNameChange" />
 
-        path : '{i18n>fname}',
-
-        type : 'sap.ui.model.type.String',
-
-        constraints : {
-
-            minLength : 3
-
-        }
-
-    }" width="50%" liveChange="handleUserInput"  placeholder="Enter your First Name" id="FirstName"></Input>
-                        <Label text="{i18n>mname}" required="true"/>
-                        <Input value=" " width="50%" liveChange="handleUserInput"   placeholder="Enter your Middle Name" id="MiddleName"></Input>
-                        <Label text="{i18n>lname}" required="true" />
-                        <Input value=" " width="50%" liveChange="handleUserInput"  placeholder="Enter your Last Name" id="LastName"></Input>
-                        <Label text="{i18n>supplier}" required="true" />
-                        <Input value=" " width="50%" liveChange="handleUserInput"  placeholder="Enter the Supplier" id="Supplier"></Input>
-                        <Label text="{i18n>email}" required="true" />
-                        <Input value=" " width="50%" liveChange="handleUserInput" placeholder="Enter your Email" id="Email"></Input>
-                         <Label text="{i18n>quantity}" required="true" />
-                        <Input value=" " width="50%" liveChange="handleUserInput"  placeholder="Please specify Quantity"  id="Quantity" ></Input>
-                           <Label text="{i18n>item}" required="true" />
-                        <Input value=" " width="50%" liveChange="handleUserInput" placeholder="Please enter Item Name"  id="Item" ></Input>
-                        <Label text="{i18n>pword1}" required="true" />
-                        <Input value=" " width="50%" liveChange="handleUserInput"  placeholder="Enter your Password" type="Password" id="Password"></Input>
-                        <Label text="{i18n>pword2}" required="true" />
-                        <Input value=" " width="50%" liveChange="handleUserInput"  placeholder="confirm your Password" type="Password" id="Confirm" ></Input>
-                        
-                        
-                        
-                        <!-- <RadioButtonGroup >
-                            <buttons>
-                                <RadioButton id="Male" text="Male"></RadioButton>
-                                <RadioButton id="rbFemaleId" text="Female"></RadioButton>
-                            </buttons>
-                        </RadioButtonGroup> -->
-                        <Label text="Date of transection"/>
-                            <DatePicker id="Date">
-                                <layoutData  >
-                                    <layout:GridData  span="L4 M3 S4"/>
-                                </layoutData>
-                            </DatePicker>
-                     
+		<Label text="E-mail" labelFor="emailInput" />
+		<Input
+        width="50%"
+			id="emailInput"
+			class="sapUiSmallMarginBottom"
+			type="Email"
+			placeholder="Enter email"
+			valueStateText="E-mail must be a valid email address."
+			value="{
+				path: '/email',
+				type: '.customEMailType'
+			}" />
+		<Button text="Submit" press=".onSubmit" />
+	</l:VerticalLayout>
+    
                         </f:content> 
                     </f:SimpleForm>
-                    </Panel>   
-                    	<Button id="btn" type="Accept" width="30%" text="Register" press=".onSave" >
-					<layoutData><OverflowToolbarLayoutData priority="NeverOverflow" /></layoutData>
-				</Button>
-                <Button type="Accept"  width="30%" text="Login"  press="GoToTarget_1">
-					<layoutData><OverflowToolbarLayoutData  priority="NeverOverflow" /></layoutData>
-				</Button>
-					<content />
-				</Page>
+     </Panel>   
+     	</Page>
 			</pages>
 		</App>
 	</Shell>

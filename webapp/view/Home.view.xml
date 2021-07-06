@@ -9,13 +9,13 @@
 	<Shell id="shel">
 		<App id="pp">
 			<pages>
-				<Page id="page" title="Home"> 
+				<Page id="page"> 
                 <Panel width="auto" class="sapUiResponsiveMargin" accessibleRole="Region" >
-                <Text  textAlign="Center"  text="Congratulations, your account has been successfully created. You have been Registerd as a new Vendor on our System, please check your Emails to verify this account"/>
+                <Text  textAlign="Center"  text="You've been logged out of our system!"/>
               </Panel>
-               <Button type="Accept" press="GoToLogin_1" width="30%" text="Login" >
-					<layoutData><OverflowToolbarLayoutData priority="NeverOverflow" /></layoutData>
-				</Button>
+               <!-- <Button type="Accept" press=".signin" width="30%" text="Login" > -->
+					<!-- <layoutData><OverflowToolbarLayoutData priority="NeverOverflow" /></layoutData> -->
+				<!-- </Button> -->
 					
 				</Page>
 			</pages>

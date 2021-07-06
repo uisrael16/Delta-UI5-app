@@ -20,10 +20,10 @@
 		"int-tests": "fiori run --open test/integration/opaTests.qunit.html"
 	},
 	"devDependencies": {
-		"@ui5/cli": "^2.10.1",
+		"@sap/ux-ui5-tooling": "1",
+		"@ui5/cli": "^2.11.3",
 		"@ui5/fs": "^2.0.6",
 		"@ui5/logger": "^2.0.1",
-		"@sap/ux-ui5-tooling": "1",
 		"rimraf": "3.0.2"
 	},
 	"ui5": {
@@ -33,9 +33,12 @@
 	},
 	"dependencies": {
 		"bcrypt": "^5.0.1",
+		"email-templates": "^8.0.7",
 		"emailjs-com": "^2.6.4",
 		"hash-wasm": "^4.6.0",
+		"mailjs": "^0.1.18",
 		"nodemailer": "^6.6.1",
+		"pug": "^3.0.2",
 		"semver": "^7.3.5"
 	}
 }

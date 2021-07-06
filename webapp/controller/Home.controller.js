@@ -8,7 +8,11 @@ sap.ui.define([
         "use strict";
 
         return Controller.extend("project1.controller.Home", {
+           
+
             GoToTarget_1: function () {
+          
+                
                 // Now Get the Router Info
                 var oRouter = sap.ui.core.UIComponent.getRouterFor(this);
 
